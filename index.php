@@ -24,10 +24,11 @@
 <br>
 
 <h1>Search User Data</h1>
-<form action="../includes/lookup.php" method="POST">
+<form action="index.php" method="POST">
 	<input type="text" name="search_user" placeholder="Enter username" required>
 	<input type="submit" value="search">
 </form>
+
 <br>
 <table border="2">
 	<tr>
@@ -37,13 +38,19 @@
 		<td>Email</td>
 		<td>Username</td>
 	</tr>
-	<tr>
-		
-	</tr>
-	<tr>
-
-	</tr>
 </table>
+
+<?php
+	if (isset($_POST['search'])){
+		require "lookup_user.php";
+
+		if (count($results) > 0){
+			foreach ($results as $r) {
+				printf("<div>%s - %s</div>", $r['user_first'], $r['user_last'], $r['email']);
+			}
+		} else { echo "No results found"; }
+	}
+?>
 
 </body>
 </html>
