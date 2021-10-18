@@ -1,3 +1,7 @@
+<?php
+	include_once 'includes/dbh_inc.php';
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,7 +34,7 @@
 </form>
 
 <br>
-<table border="2">
+<table border="1">
 	<tr>
 		<td>User ID</td>
 		<td>First Name</td>
@@ -41,15 +45,15 @@
 </table>
 
 <?php
-	if (isset($_POST['search'])){
-		require "lookup_user.php";
+	$sql = "SELECT * FROM users;";
+    $result = mysqli_query($conn, $sql);
+    $resultCheck = mysqli_num_rows($result);
 
-		if (count($results) > 0){
-			foreach ($results as $r) {
-				printf("<div>%s - %s</div>", $r['user_first'], $r['user_last'], $r['email']);
-			}
-		} else { echo "No results found"; }
-	}
+    if ($resultCheck > 0){
+        while ($row = mysqli_fetch_assoc($result)){
+            echo $row['user_uid'] . "<br>";
+        }
+    }
 ?>
 
 </body>
