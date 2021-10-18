@@ -36,13 +36,14 @@
 <?php
 	if(isset($_POST['search_user'])){
 		$search = $_POST['get_user'];
-		$query = "SELECT * FROM users WHERE user_uid='$search';";
+		$query = "SELECT * FROM users WHERE user_uid='$search' OR user_id='$search' OR user_first='$search' OR user_last='$search';";
 		$query_run = mysqli_query($conn, $query);
 ?>
 
 <br>
 <table border="1">
 	<tr>
+		<td>User ID</td>
 		<td>Username</td>
 		<td>First Name</td>
 		<td>Last Name</td>
@@ -53,6 +54,7 @@
 			while($row = mysqli_fetch_array($query_run)){
 	?>
 	<tr>
+		<td><?php echo $row['user_id']; ?></td>
 		<td><?php echo $row['user_uid']; ?></td>
 		<td><?php echo $row['user_first']; ?></td>
 		<td><?php echo $row['user_last']; ?></td>
@@ -61,7 +63,11 @@
 	<?php
 		}
 	}else {
-		echo "No Data Found";
+		?>
+	<tr>
+		<td colspan="5">No Record Found</td>
+	</tr>
+	<?php
 	}
 	?>
 </table>
