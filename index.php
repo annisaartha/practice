@@ -40,5 +40,19 @@
 		$query_run = mysqli_query($conn, $query);
 ?>
 
+<br>
+<table border="1">
+	<tr>
+		<td>User ID</td>
+		<td>Username</td>
+		<td>First Name</td>
+		<td>Last Name</td>
+		<td>Email</td>
+	</tr>
+</table>
+<?php
+	}
+	?>
+
 </body>
 </html>
