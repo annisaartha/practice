@@ -49,27 +49,6 @@
 		<td>Last Name</td>
 		<td>Email</td>
 	</tr>
-	<?php
-		if(mysqli_num_rows($query_run) > 0){
-			while($row = mysqli_fetch_array($query_run)){
-	?>
-	<tr>
-		<td><?php echo $row['user_id']; ?></td>
-		<td><?php echo $row['user_uid']; ?></td>
-		<td><?php echo $row['user_first']; ?></td>
-		<td><?php echo $row['user_last']; ?></td>
-		<td><?php echo $row['user_email']; ?></td>
-	</tr>
-	<?php
-		}
-	}else {
-		?>
-	<tr>
-		<td colspan="5">No Record Found</td>
-	</tr>
-	<?php
-	}
-	?>
 </table>
 <?php
 	}
