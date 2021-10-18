@@ -5,7 +5,7 @@
 </head>
 <body>
 
-<h1> Enter your data here </h1>
+<h1> Enter new data here </h1>
 <form action="../includes/signup_inc.php" method="POST">
     <input type="text" name="first" placeholder="Firstname">
     <br>
@@ -17,7 +17,7 @@
     <br>
     <input type="password" name="pwd" placeholder="Password">
     <br>
-    <button type="submit" name="submit">Sign up</button>
+	<button type="submit" name="submit">Sign up</button>
 </form>
 
 <br>
@@ -25,8 +25,8 @@
 
 <h1>Search User Data</h1>
 <form action="../includes/lookup.php" method="POST">
-	<input type="text" name="search_user" placeholder="Enter username">
-	<button type="submit" name="search">Search</button>
+	<input type="text" name="search_user" placeholder="Enter username" required>
+	<input type="submit" value="search">
 </form>
 <br>
 <table border="2">
@@ -38,9 +38,10 @@
 		<td>Username</td>
 	</tr>
 	<tr>
-		<?php
-			include_once "../includes/lookup.php";
-		?>
+		
+	</tr>
+	<tr>
+
 	</tr>
 </table>
 
